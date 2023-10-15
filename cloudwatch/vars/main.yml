@@ -1,0 +1,5 @@
+---
+CWA_URL: https://cloudwatchagnets3.s3.amazonaws.com/amazon-cloudwatch-agent.rpm
+config_json: https://cloudwatchagnets3.s3.amazonaws.com/config.json
+Win_CWA_URL: https://cloudwatchagnets3.s3.amazonaws.com/amazon-cloudwatch-agent.msi
+win_config_json: https://cloudwatchagnets3.s3.amazonaws.com/win_config.json

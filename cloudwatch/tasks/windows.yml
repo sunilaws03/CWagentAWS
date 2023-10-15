@@ -1,0 +1,26 @@
+---
+- name: Download AmazonCloudWatchAgent
+  win_get_url:
+    win_get_url:
+      url: "{{ Win_CWA_URL }}"
+      dest: C:\
+    tags: windows_cloudwatch Download
+- name: Install windows_cloudwatch
+  win_package:
+    path: C:\amazon-cloudwatch-agent-msi
+    state: present
+- name: windows_cloudwatch
+  win_get_url:
+    url: "{{win_config_json}}"
+    dest: C:\Program Files\Amazon\AmazonCloudwatchAgent\config.json
+  tags: windows_cloudwatch
+- name: Staging the Cloudwatch service
+  win_shell: .\amazon-cloudwatch-agent-ctl.ps1 -a fetch-config -m ec2 -c
+    file:'C:\Program File\Amazon\AmazonCloudwatchAgent\config.json'
+  args:
+    chdir: C:\Program File\Amazon\AmazonCloudwatchAgent\
+  tags: start_service
+- name: Remove a file cloudwatch, if present
+  win_file:
+    path: C:\amazon-cloudwatch-agent.msi
+    state: absent

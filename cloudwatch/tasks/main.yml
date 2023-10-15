@@ -1,0 +1,8 @@
+---
+- name: Importing tasks from redhat.yml ...
+  import_tasks: rhel.yml
+  when: ansible_os_family == "RedHat"
+
+- name: Importing tasks from windows.yml ...
+  import_tasks: windows.yml
+  when: ansible_os_family == "Windows"
