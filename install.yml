@@ -1,4 +1,4 @@
 ---
-- hosts: 172.31.46.209
+- hosts: all
   role:
     - role: './cloudwatch'
