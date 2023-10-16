@@ -1,4 +1,5 @@
 ---
 - hosts: localhost
-  role:
-    - role: './cloudwatch'
+  remote_user: root
+  roles:
+    - cloudwatch-agent
